@@ -1,0 +1,58 @@
+﻿@model HomeViewBag
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<div class="text-center">
+
+
+    <h1 class="display-4 pb-3">Registro de log</h1>
+    <div class="row justify-content-end pb-3">
+        @if(Model.viewLog)
+        {
+             <div class="col-md-2">
+            <button class="btn btn-primary" id="addLog">Agregar log</button>
+            </div>
+        }
+        else
+        {
+            <div class="col-md-12">
+                <button class="btn btn-danger" id="back">Regresar</button>
+            </div>
+        }
+
+        
+        
+    </div>
+
+    @if (Model.viewLog)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Fecha Hora</th>
+                    <th scope="col">Origen </th>
+                    <th scope="col">Equipo </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.LogEjecuciones)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.FechaHora</td>
+                        <td>@item.Origen</td>
+                        <td>@item.Equipo</td>
+                  </tr>
+                } 
+            </tbody>
+        </table>
+    }
+
+ 
+
+</div>
+
+
